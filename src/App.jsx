@@ -3,6 +3,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Projects from './pages/Projects';
 import Contact from './pages/contact';
 import About from './pages/about';
+import ProjectDetails from './pages/ProjectDetails';
 function App() {
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Projects /> } /> 
         <Route path="/tags/:tagnames" element={<Projects /> } />
         <Route path="/tags/" element={<Projects /> } />
+        <Route path="/project/details" element={<ProjectDetails /> } />
 
       
       </Routes>

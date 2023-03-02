@@ -1,24 +1,28 @@
         import React, {useEffect, useState} from 'react'
-        import { Link, useParams } from 'react-router-dom';
-        import Project from './project'
+        import { useParams } from 'react-router-dom';
+        import ProjectItems from '../assets/ProjectsItems'
+        import {TagsAvailable, TagColor} from '../assets/Tags'
+
+        function getKeyByValue(object, value) {
+          return Object.keys(object).find(key => object[key] === value);
+        }
 
         function FilterByTags(CurrentArray, CurrentTags, SetDisplay) {
           let toDisplay = []
+     
           if(CurrentTags.length <=0) return
           for (const project of CurrentArray) {
-            if(!toDisplay.includes(project))
             for (const key in CurrentTags) {
-              if (project.props["Tags"].includes(CurrentTags[key])) {
-                toDisplay.push(project);
-                
+                if (!toDisplay.includes(project) && project.props["Tags"].includes(CurrentTags[key])) {
+                  toDisplay.push(project);
+                }
               }
-            }
           }
           SetDisplay(toDisplay)
         }
 
-        function AddTag(Tag, ActiveTags, AddTagFunction) {
-          let index = ActiveTags.findIndex(item => item == Tag)
+        function AddTag(TagKey, ActiveTags, AddTagFunction) {
+          let index = ActiveTags.findIndex(item => item == TagKey)
           let temp = [...ActiveTags]
           if(index > -1)
           {
@@ -26,7 +30,7 @@
           }
           else
           {
-            temp.push(Tag)
+            temp.push(TagKey)
           }
           AddTagFunction(() => temp)
         }
@@ -35,20 +39,10 @@
 
           const {tagnames} = useParams()
           
-          let arr = [<Project Tags={["Games", "C++"]}/>,<Project Tags={["Web", "Javascript"]}/>,<Project Tags={["Web", "C#"]}/>,<Project Tags={["Web", "C++", "OpenGL"]}/>,<Project Tags={["Games", "Personnal"]}/>]
-          const [ActiveArray, setActiveArray] = useState(arr)
+          
+          const [ActiveArray, setActiveArray] = useState(ProjectItems)
           const [ActiveTags, setActiveTags] = useState([])
-          const TagsAvailable = {
-            game: "Games",
-            cs: "C#",
-            web: "Web",
-            app: "Apps",
-            cpp: "C++",
-            js: "Javascript",
-            opengl: "OpenGL",
-            pers: "Personnal",
-            uni: "University"
-          }
+
 
           useEffect(() => {
             let tagArray = []
@@ -58,7 +52,7 @@
                 let TagValue = TagsAvailable[tag]
                 if(TagValue)
                 {
-                  tagArray.push(TagValue);
+                  tagArray.push(tag);
                 }          
               }
               setActiveTags(tagArray)
@@ -67,11 +61,11 @@
           
   
           useEffect(() => {
-            console.log(ActiveTags);
             if(ActiveTags.length > 0)
-              FilterByTags(arr, ActiveTags, setActiveArray)
+
+              FilterByTags(ProjectItems, ActiveTags, setActiveArray)
             else
-              setActiveArray(arr)
+              setActiveArray(ProjectItems)
           }, [ActiveTags])
           
 
@@ -80,15 +74,20 @@
           return (
             <div className='mt-32 text-white'>
               <div className='place-items-center grid grid-cols-3 gap-4 w-full text-lg '>
-                <div><button onClick={() => { AddTag(TagsAvailable.game, ActiveTags, setActiveTags)}}>Game</button> </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.web, ActiveTags, setActiveTags)}}>Web</button></div>
-                <div><button onClick={() => { AddTag(TagsAvailable.app, ActiveTags, setActiveTags)}}>Apps</button> </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.cpp, ActiveTags, setActiveTags)}}>C++</button>  </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.cs, ActiveTags, setActiveTags)}}> C#</button> </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.js, ActiveTags, setActiveTags)}} >Javascript</button> </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.opengl, ActiveTags, setActiveTags)}} >OpenGL</button> </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.pers, ActiveTags, setActiveTags)}} >Personnal</button> </div>
-                <div><button onClick={() => { AddTag(TagsAvailable.uni, ActiveTags, setActiveTags)}} >University</button> </div>
+                <div><button onClick={() => { AddTag("game", ActiveTags, setActiveTags)}}>Game</button> </div>
+                <div><button onClick={() => { AddTag("web", ActiveTags, setActiveTags)}}>Web</button></div>
+                <div><button onClick={() => { AddTag("app", ActiveTags, setActiveTags)}}>Apps</button> </div>
+                <div><button onClick={() => { AddTag("cpp", ActiveTags, setActiveTags)}}>C++</button>  </div>
+                <div><button onClick={() => { AddTag("cs", ActiveTags, setActiveTags)}}> C#</button> </div>
+                <div><button onClick={() => { AddTag("js", ActiveTags, setActiveTags)}} >Javascript</button> </div>
+                <div><button onClick={() => { AddTag("opengl", ActiveTags, setActiveTags)}} >OpenGL</button> </div>
+                <div><button onClick={() => { AddTag("pers", ActiveTags, setActiveTags)}} >Personnal</button> </div>
+                <div><button onClick={() => { AddTag("uni", ActiveTags, setActiveTags)}} >University</button> </div>
+              </div>
+              <div className='flex flex-wrap mx-auto mt-5 justify-center w-1/2'>
+                {
+                    ActiveTags && ActiveTags.map(tag => <div key={tag} onClick={() => { AddTag(tag, ActiveTags, setActiveTags)}} className={`px-2 mt-1 mx-2 rounded-full text-sm h-5 cursor-default hover:cursor-pointer text-black font-semibold  ${TagColor[tag]}`}>{TagsAvailable[tag]}</div> )
+                }
               </div>
               <div className='p-10  w-full'>
                   <ul>
