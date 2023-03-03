@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
-import Projects from './pages/Projects';
+import Projects from './pages/ProjectsPage';
 import Contact from './pages/contact';
 import About from './pages/about';
 import ProjectDetails from './pages/ProjectDetails';
@@ -29,7 +29,7 @@ function App() {
         <Route path="/" element={<Projects /> } /> 
         <Route path="/tags/:tagnames" element={<Projects /> } />
         <Route path="/tags/" element={<Projects /> } />
-        <Route path="/project/details" element={<ProjectDetails /> } />
+        <Route path="/project/details/:id" element={<ProjectDetails /> } />
 
       
       </Routes>

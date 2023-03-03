@@ -8,7 +8,8 @@ export const TagsAvailable = {
     js: "Javascript",
     opengl: "OpenGL",
     pers: "Personnal",
-    uni: "University"
+    uni: "University",
+    uwp: "UWP"
 }
 export const TagColor = {
     game:  "bg-red-400", 
@@ -19,6 +20,7 @@ export const TagColor = {
     opengl:  "bg-blue-300",
     pers:  "bg-cyan-300",
     uni:  "bg-orange-300",
-    cs: "bg-fuchsia-300"
+    cs: "bg-fuchsia-300",
+    uwp: "bg-lime-300"
 }
 
