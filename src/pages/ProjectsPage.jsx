@@ -72,8 +72,8 @@
         
           return (
             <div className='mt-32 text-white'>
-              <div className='place-items-center grid grid-cols-3 gap-4 w-full text-lg '>
-                {Object.keys(TagsAvailable).map(item => <div><button onClick={() => { AddTag(item, ActiveTags, setActiveTags)}}>{TagsAvailable[item]}</button> </div>)}
+              <div className='place-items-center flex flex-wrap justify-between mx-auto gap-4 w-1/2 text-lg '>
+                {Object.keys(TagsAvailable).map((item, i) => <div key={i} className={`shadow-lg ${TagColor[item]} text-black  font-semibold text-sm rounded-full px-4`} ><button  onClick={() => { AddTag(item, ActiveTags, setActiveTags)}}>{TagsAvailable[item]}</button> </div>)}
               </div>
               <div className='flex flex-wrap mx-auto mt-5 justify-center w-1/2'>
                 {

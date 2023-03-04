@@ -10,7 +10,7 @@ function project({Tags, Title, url, image, ...props}) {
     const navigate = useNavigate();
 
   return (
-    <div className='flex mt-2 cursor-auto hover:cursor-pointer hover:bg-gray-800 ' onClick={() => {
+    <div className='flex mt-10 cursor-auto hover:cursor-pointer hover:bg-gray-800 ' onClick={() => {
         navigate("/project/details/"+props.id)
     }}>
         <div className='w-1/5'><img className='rounded-lg' src={image} alt="img" /></div>

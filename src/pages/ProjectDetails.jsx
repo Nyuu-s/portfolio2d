@@ -22,7 +22,7 @@ const getDetails = (id) => {
 function ProjectDetails(props) {
   const {id} = useParams()
   const details = getDetails(id)
-  console.log(details.videos);
+
   return (
     <div className='text-white my-10  mx-auto'>
       <h1 className='flex font-bold  justify-center w-full text-lg'>{details.title} <div>{statusMap[details.status]}</div></h1>
