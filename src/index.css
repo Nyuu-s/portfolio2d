@@ -6,6 +6,12 @@
 
 }
 
+@layer components {
+  .page {
+    @apply mx-auto w-full max-w-3xl px-6;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,27 +1,46 @@
-import React from 'react'
+import cvFr from '../assets/cv_fr.pdf'
+import cvEn from '../assets/cv_en.pdf'
 
-function contact() {
+const contacts = [
+  { label: 'Email', text: 'edgar.jacquemoud99@gmail.com', href: 'mailto:edgar.jacquemoud99@gmail.com' },
+  { label: 'LinkedIn', text: 'linkedin.com/in/edgargamedev', href: 'https://www.linkedin.com/in/edgargamedev/' },
+  { label: 'GitHub', text: 'github.com/Nyuu-s', href: 'https://github.com/Nyuu-s' },
+]
 
+const others = [
+  { label: 'Portfolio', text: '3D experience', href: 'http://3d.edgar.jacquemoud.com' },
+  { label: 'CV', text: 'French (PDF)', href: cvFr },
+  { label: 'CV', text: 'English (PDF)', href: cvEn },
+]
+
+function Rows({ items }) {
   return (
-    <div>
-        <div className='my-10 p-10 text-white'>
-            <h3 className='p-5 text-xl '>Here are my different contact methods and other useful links: </h3>
-            <div className='flex pl-5 flex-col items-start'>
-        
-                <div className='flex   font-mono p-2'> <span className='mt-1 px-2'></span> email:  edgar.jacquemoud99@gmail.com </div>
-                <div className='flex   font-mono  p-2  dark:text-cyan-300 hover:text-blue-600'> <span className='mt-1 px-2'></span>  <a target='_blank' rel="noreferrer" href={"https://www.linkedin.com/in/edgargamedev/"}>Linkedin: linkedin.com/in/edgargamedev/</a></div>
-                <div className='flex   font-mono  p-2  dark:text-cyan-300 hover:text-blue-600'> <span className='mt-1 px-2'></span>   <a target='_blank' rel="noreferrer" href={"https://github.com/Nyuu-s"}>Github: https://github.com/Nyuu-s</a></div>
-            </div>
-            <h3 className='p-5 text-xl'>Other infos</h3>
-            <div className='flex pl-5 flex-col items-start'>
-                    <div className='flex   font-mono p-2'> <span className='mt-1 px-2'></span>  <a href="http://3d.edgar.jacquemoud.com" target="_blank" rel="noopener noreferrer">portfolio 3D experience</a> </div>
-                    <div className='flex   font-mono  p-2  hover:text-blue-600'> <span className='mt-1 px-2'></span>   <a target='_blank' rel="noreferrer" href={"/EdgarCV.pdf"}>CV (French)</a></div>
-                    <div className='flex   font-mono  p-2  hover:text-blue-600'> <span className='mt-1 px-2'></span>   <a target='_blank' rel="noreferrer" href={"/EdgarCV-EN.pdf"}>CV (English)</a></div>
-            </div>
-    </div>
-
-    </div>
+    <ul className="mt-3 divide-y divide-gray-800">
+      {items.map(({ label, text, href }) => (
+        <li key={text} className="flex gap-4 py-2 font-mono">
+          <span className="w-24 flex-shrink-0 text-gray-400">{label}</span>
+          <a
+            href={href}
+            target={href.startsWith('mailto:') ? undefined : '_blank'}
+            rel="noopener noreferrer"
+            className="min-w-0 break-words text-cyan-300 hover:text-sky-300 hover:underline"
+          >
+            {text}
+          </a>
+        </li>
+      ))}
+    </ul>
   )
 }
 
-export default contact
+export default function Contact() {
+  return (
+    <div className="page text-white pb-20">
+      <p className="text-xl">Here are my different contact methods and other useful links:</p>
+      <Rows items={contacts} />
+
+      <h2 className="mt-10 text-xl font-bold">Other infos</h2>
+      <Rows items={others} />
+    </div>
+  )
+}

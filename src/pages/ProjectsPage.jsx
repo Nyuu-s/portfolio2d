@@ -1,96 +1,115 @@
-        import React, {useEffect, useState} from 'react'
-        import { useParams } from 'react-router-dom';
-        import ProjectItems from '../assets/ProjectsList'
-        import {TagsAvailable, TagColor} from '../assets/Tags'
+import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { projects, normalize } from '../data/projects'
+import { TAGS } from '../data/tags'
+import { useDebouncedValue } from '../hooks/useDebouncedValue'
+import ProjectCard from '../components/ProjectCard'
+import TagChip from '../components/TagChip'
 
-        function getKeyByValue(object, value) {
-          return Object.keys(object).find(key => object[key] === value);
-        }
+export default function Projects() {
+  const [params, setParams] = useSearchParams()
+  const tagsParam = params.get('tags') ?? ''
 
-        function FilterByTags(CurrentArray, CurrentTags, SetDisplay) {
-          let toDisplay = []
-     
-          if(CurrentTags.length <=0) return
-          for (const project of CurrentArray) {
-            for (const key in CurrentTags) {
-                if (!toDisplay.includes(project) && project.props["Tags"].includes(CurrentTags[key])) {
-                  toDisplay.push(project);
-                }
-              }
-          }
-          SetDisplay(toDisplay)
-        }
+  const activeTags = useMemo(
+    () => tagsParam.split(',').filter((t) => t in TAGS),
+    [tagsParam]
+  )
 
-        function AddTag(TagKey, ActiveTags, AddTagFunction) {
-          let index = ActiveTags.findIndex(item => item == TagKey)
-          let temp = [...ActiveTags]
-          if(index > -1)
-          {
-            temp.splice(index, 1)
-          }
-          else
-          {
-            temp.push(TagKey)
-          }
-          AddTagFunction(() => temp)
-        }
-        
-        function Projects() {
+  const [input, setInput] = useState(params.get('q') ?? '')
+  const q = useDebouncedValue(input)
 
-          const {tagnames} = useParams()
-          const [ActiveArray, setActiveArray] = useState(ProjectItems)
-          const [ActiveTags, setActiveTags] = useState([])
-          // const TagsAvailableArray =
+  const update = (patch) => {
+    const next = new URLSearchParams(params)
+    for (const [k, v] of Object.entries(patch)) v ? next.set(k, v) : next.delete(k)
+    setParams(next, { replace: true })
+  }
 
+  useEffect(() => { update({ q: q.trim() }) }, [q])   // eslint-disable-line
 
-          useEffect(() => {
-            let tagArray = []
-            if(tagnames)
-            {
-              for (const tag of tagnames.split('&')) {
-                let TagValue = TagsAvailable[tag]
-                if(TagValue)
-                {
-                  tagArray.push(tag);
-                }          
-              }
-              setActiveTags(tagArray)
-            }
-          }, [])
-          
-  
-          useEffect(() => {
-            if(ActiveTags.length > 0)
+  const toggleTag = (t) =>
+    update({ tags: (activeTags.includes(t) ? activeTags.filter((x) => x !== t) : [...activeTags, t]).join(',') })
 
-              FilterByTags(ProjectItems, ActiveTags, setActiveArray)
-            else
-              setActiveArray(ProjectItems)
-          }, [ActiveTags])
-          
+  const visible = useMemo(() => {
+    const terms = normalize(q).split(/\s+/).filter(Boolean)
+    return projects.filter(
+      (p) =>
+        (!activeTags.length || activeTags.some((t) => p.tags.includes(t))) &&
+        terms.every((t) => p.searchText.includes(t))
+    )
+  }, [q, activeTags])
 
-          
-        
-          return (
-            <div className='mt-32 text-white'>
-              <div className='place-items-center flex flex-wrap justify-between mx-auto gap-4 w-1/2 text-lg '>
-                {Object.keys(TagsAvailable).map((item, i) => <div key={i} className={`shadow-lg ${TagColor[item]} text-black  font-semibold text-sm rounded-full px-4`} ><button  onClick={() => { AddTag(item, ActiveTags, setActiveTags)}}>{TagsAvailable[item]}</button> </div>)}
-              </div>
-              <div className='flex flex-wrap mx-auto mt-5 justify-center w-1/2'>
-                {
-                    ActiveTags && ActiveTags.map(tag => <div key={tag} onClick={() => { AddTag(tag, ActiveTags, setActiveTags)}} className={`px-2 mt-1 mx-2 rounded-full text-sm h-5 cursor-default hover:cursor-pointer text-black font-semibold  ${TagColor[tag]}`}>{TagsAvailable[tag]}</div> )
-                }
-              </div>
-              <div className='p-10  w-full'>
-                  <ul>
-                   {
-                    ActiveArray.map((item, i) => (<li key={i}>{item}</li>))
-                   
-                   }
-                  </ul>
-              </div>
+  const filtering = Boolean(q.trim()) || activeTags.length > 0
+  const focused = filtering ? [] : visible.filter((p) => p.focus)
+  const rest = filtering ? visible : visible.filter((p) => !p.focus)
 
-            </div>
-          )
-        }
-        
-        export default Projects
+  return (
+    <div className="page text-white pb-20">
+      <input
+        type="search"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Search projects…"
+        aria-label="Search projects"
+        className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white placeholder-gray-400 outline-none focus:border-sky-400"
+      />
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {Object.keys(TAGS).map((t) => (
+          <button
+            key={t}
+            onClick={() => toggleTag(t)}
+            aria-pressed={activeTags.includes(t)}
+            className={`rounded-full outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${
+              activeTags.includes(t) ? '' : 'opacity-50 hover:opacity-100'
+            }`}
+          >
+            <TagChip id={t} size="md" />
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-4 flex items-center justify-between text-sm text-gray-400">
+        <p aria-live="polite">
+          {visible.length} project{visible.length === 1 ? '' : 's'}
+        </p>
+        {activeTags.length > 0 && (
+          <button
+            onClick={() => update({ tags: '' })}
+            className="rounded underline outline-none hover:text-white focus-visible:ring-2 focus-visible:ring-sky-400"
+          >
+            Clear tags ({activeTags.length})
+          </button>
+        )}
+      </div>
+
+      {focused.length > 0 && (
+        <section
+          aria-labelledby="focus-title"
+          className="mt-6 rounded-lg border-l-4 border-sky-400 bg-gray-800/40 px-4 py-3"
+        >
+          <h2 id="focus-title" className="text-sm font-semibold uppercase tracking-wide text-sky-300">
+            Currently focused on
+          </h2>
+          <ul className="mt-1 space-y-2">
+            {focused.map((p) => <li key={p.slug}><ProjectCard project={p} /></li>)}
+          </ul>
+        </section>
+      )}
+
+      {rest.length > 0 && (
+        <section className="mt-6">
+          {focused.length > 0 && (
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-400">All projects</h2>
+          )}
+          <ul className="mt-2 space-y-2">
+            {rest.map((p) => <li key={p.slug}><ProjectCard project={p} /></li>)}
+          </ul>
+        </section>
+      )}
+
+      {visible.length === 0 && (
+        <p className="mt-10 text-center text-gray-400">No project matches your search.</p>
+      )}
+    </div>
+  )
+}
