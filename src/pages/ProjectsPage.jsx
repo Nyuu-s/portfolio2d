@@ -5,16 +5,18 @@ import { TAGS } from '../data/tags'
 import { useDebouncedValue } from '../hooks/useDebouncedValue'
 import ProjectCard from '../components/ProjectCard'
 import TagChip from '../components/TagChip'
+import {STATUS} from '../data/status.js'
 
 export default function Projects() {
   const [params, setParams] = useSearchParams()
   const tagsParam = params.get('tags') ?? ''
+  
 
   const activeTags = useMemo(
     () => tagsParam.split(',').filter((t) => t in TAGS),
     [tagsParam]
   )
-
+  const [selectStatus, setSelectedStatus] = useState(null)
   const [input, setInput] = useState(params.get('q') ?? '')
   const q = useDebouncedValue(input)
 
@@ -36,7 +38,9 @@ export default function Projects() {
         (!activeTags.length || activeTags.some((t) => p.tags.includes(t))) &&
         terms.every((t) => p.searchText.includes(t))
     )
-  }, [q, activeTags])
+    .filter((p) => (!selectStatus || p.status === selectStatus))
+      .sort((a, b) => STATUS[a["status"]]["order"] - STATUS[b["status"]]["order"])
+  }, [q, activeTags, selectStatus])
 
   const filtering = Boolean(q.trim()) || activeTags.length > 0
   const focused = filtering ? [] : visible.filter((p) => p.focus)
@@ -72,6 +76,13 @@ export default function Projects() {
         <p aria-live="polite">
           {visible.length} project{visible.length === 1 ? '' : 's'}
         </p>
+        {STATUS && Object.entries(STATUS).sort(([, a], [, b]) => a.order - b.order).map( ([key, value]) => ( 
+        <button
+          onClick={() => setSelectedStatus(key)}
+          className={[ selectStatus === key && "underline", "rounded", "outline-none", "hover:text-white", "focus-visible:ring-2", "focus-visible:ring-sky-400"].filter(Boolean).join(" ")}> {value.label} </button>))}
+        <button
+          onClick={() => setSelectedStatus(null)}
+          className={[ !selectStatus && "underline", "rounded", "outline-none", "hover:text-white", "focus-visible:ring-20", "focus-visible:ring-sky-400"].filter(Boolean).join(" ")}> All </button>
         {activeTags.length > 0 && (
           <button
             onClick={() => update({ tags: '' })}

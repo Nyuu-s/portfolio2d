@@ -1,5 +1,65 @@
 [
   {
+    "slug": "ilexc",
+    "title": "ILexC",
+    "summary": "Simple C lexer with IBM ILE support",
+    "description": "Simple C lexer with IBM ILE support",
+    "status": "hiatus",
+    "tags": ["python", "c", "pers"],
+    "repo": "Nyuu-s/ILexC",
+    "body": [],
+    "focus": true
+  },
+  {
+    "slug": "swapandjump",
+    "title": "SwapAndJump",
+    "summary": "Small platformer 2D game prototype to test different algorithms of swaping levels",
+    "description": "Small platformer 2D game prototype to test different algorithms of swaping levels",
+    "status": "hiatus",
+    "tags": ["cpp", "pers", "opengl"],
+    "repo": "Nyuu-s/SwapAndJump",
+    "body": []
+  },
+  {
+    "slug": "xmas-games",
+    "title": "xmas games",
+    "summary": "small riddle games to open presents for xmas",
+    "description": "small riddle games to open presents for xmas",
+    "status": "hiatus",
+    "tags": ["c", "pers"],
+    "repo": "https://github.com/Nyuu-s/xmasGames",
+    "body": []
+  },
+  {
+    "slug": "ll1parser",
+    "title": "LL1Parser",
+    "summary": "1st attempt of Legacy Search Engine",
+    "description": "1st attempt of Legacy Search Engine",
+    "status": "off",
+    "tags": ["python"],
+    "body": []
+  },
+  {
+    "slug": "legacy-search-engine",
+    "title": "Legacy Search Engine",
+    "summary": "A tool to anlyse mainframe codebases",
+    "description": "A tool to anlyse mainframe codebases",
+    "status": "hiatus",
+    "tags": ["c", "pers"],
+    "repo": "Nyuu-s",
+    "body": []
+  },
+  {
+    "slug": "jedlex",
+    "title": "jedlex",
+    "summary": "simple c lexing lib",
+    "description": "simple c lexing lib",
+    "status": "hiatus",
+    "tags": ["c", "pers"],
+    "repo": "Nyuu-s",
+    "body": []
+  },
+  {
     "slug": "clogp",
     "title": "clogp",
     "summary": "C log plotting tool",

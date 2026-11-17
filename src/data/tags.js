@@ -10,4 +10,5 @@ export const TAGS = {
   uni:    { label: 'University', color: 'bg-orange-300' },
   uwp:    { label: 'UWP',        color: 'bg-lime-300' },
   c: { label: 'C', color: 'bg-amber-300' },
+  python: { label: 'Python', color: 'bg-teal-300' },
 }
