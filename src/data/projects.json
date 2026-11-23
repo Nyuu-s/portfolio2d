@@ -1,5 +1,24 @@
 [
   {
+    "slug": "coib",
+    "title": "coib",
+    "summary": "Compile Objects Into Binary, a nob.h inspired build tool",
+    "description": "Compile Objects Into Binary, a nob.h inspired build tool",
+    "status": "done",
+    "tags": ["c", "pers"],
+    "repo": "Nyuu-s/coib",
+    "body": []
+  },
+  {
+    "slug": "hello",
+    "title": "hello",
+    "summary": "hello world",
+    "description": "hello world",
+    "status": "off",
+    "tags": ["game"],
+    "body": []
+  },
+  {
     "slug": "ilexc",
     "title": "ILexC",
     "summary": "Simple C lexer with IBM ILE support",
