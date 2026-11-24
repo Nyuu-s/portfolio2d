@@ -78,6 +78,7 @@ export default function Projects() {
         </p>
         {STATUS && Object.entries(STATUS).sort(([, a], [, b]) => a.order - b.order).map( ([key, value]) => ( 
         <button
+          key={key}
           onClick={() => setSelectedStatus(key)}
           className={[ selectStatus === key && "underline", "rounded", "outline-none", "hover:text-white", "focus-visible:ring-2", "focus-visible:ring-sky-400"].filter(Boolean).join(" ")}> {value.label} </button>))}
         <button

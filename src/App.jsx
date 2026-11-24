@@ -19,7 +19,6 @@ function App() {
       <div className="flex flex-wrap  justify-between  text-base bg-red-900"> 
       <ul >
         <li>-Add a back arrow on project details</li>  
-        <li>-Convert pictures to webpm</li>  
         <li>-Add a CLI and GUI default pic </li>  
         <li>-Add Tag Family : Languages, Software Kinds, Frameworks </li>  
     </ul>
