@@ -6,9 +6,10 @@ export const TAGS = {
   cpp:    { label: 'C++',        color: 'bg-purple-400' },
   js:     { label: 'Javascript', color: 'bg-yellow-300' },
   opengl: { label: 'OpenGL',     color: 'bg-blue-300' },
-  pers:   { label: 'Personal',   color: 'bg-cyan-300' },
   uni:    { label: 'University', color: 'bg-orange-300' },
   uwp:    { label: 'UWP',        color: 'bg-lime-300' },
   c: { label: 'C', color: 'bg-amber-300' },
   python: { label: 'Python', color: 'bg-teal-300' },
+  cli: { label: 'CLI', color: 'bg-cyan-300' },
+  gui: { label: 'GUI', color: 'bg-emerald-300' },
 }

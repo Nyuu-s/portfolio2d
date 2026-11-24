@@ -1,11 +1,22 @@
 [
   {
+    "slug": "s2c",
+    "title": "s2c",
+    "summary": "Screenshot to C code",
+    "description": "Screenshot to C code",
+    "status": "hiatus",
+    "tags": ["c", "cli"],
+    "repo": "Nyuu-s/s2c",
+    "body": []
+  },
+  {
     "slug": "remiut",
     "title": "remiut",
     "summary": "Record Migration Utility",
     "description": "Record Migration Utility",
     "status": "on",
-    "tags": ["pers", "c"],
+    "focus": true,
+    "tags": ["c", "cli"],
     "repo": "Nyuu-s/remiut",
     "body": []
   },
@@ -15,7 +26,7 @@
     "summary": "Petanque ball distance ranker",
     "description": "Petanque ball distance ranker",
     "status": "hiatus",
-    "tags": ["c", "pers"],
+    "tags": ["c"],
     "body": []
   },
   {
@@ -24,17 +35,8 @@
     "summary": "Compile Objects Into Binary, a nob.h inspired build tool",
     "description": "Compile Objects Into Binary, a nob.h inspired build tool",
     "status": "done",
-    "tags": ["c", "pers"],
+    "tags": ["c"],
     "repo": "Nyuu-s/coib",
-    "body": []
-  },
-  {
-    "slug": "hello",
-    "title": "hello",
-    "summary": "hello world",
-    "description": "hello world",
-    "status": "off",
-    "tags": ["game"],
     "body": []
   },
   {
@@ -43,10 +45,9 @@
     "summary": "Simple C lexer with IBM ILE support",
     "description": "Simple C lexer with IBM ILE support",
     "status": "hiatus",
-    "tags": ["python", "c", "pers"],
+    "tags": ["python"],
     "repo": "Nyuu-s/ILexC",
-    "body": [],
-    "focus": true
+    "body": []
   },
   {
     "slug": "swapandjump",
@@ -54,7 +55,7 @@
     "summary": "Small platformer 2D game prototype to test different algorithms of swaping levels",
     "description": "Small platformer 2D game prototype to test different algorithms of swaping levels",
     "status": "hiatus",
-    "tags": ["cpp", "pers", "opengl"],
+    "tags": ["cpp", "opengl"],
     "repo": "Nyuu-s/SwapAndJump",
     "body": []
   },
@@ -64,7 +65,7 @@
     "summary": "small riddle games to open presents for xmas",
     "description": "small riddle games to open presents for xmas",
     "status": "hiatus",
-    "tags": ["c", "pers"],
+    "tags": ["c"],
     "repo": "https://github.com/Nyuu-s/xmasGames",
     "body": []
   },
@@ -81,9 +82,9 @@
     "slug": "legacy-search-engine",
     "title": "Legacy Search Engine",
     "summary": "A tool to anlyse mainframe codebases",
-    "description": "A tool to anlyse mainframe codebases",
-    "status": "hiatus",
-    "tags": ["c", "pers"],
+    "description": "A tool to anlyse mainframe codebases, essentialy a static analyzer intended to find hotspots where a one to one translation would cause performance issues. Requires a legacy lexer/parser,  and an analyzer. Unfortunatly with the upcoming AI improvements, this project wasn't as useful as I wished for, so I couldn't invest much time in it.",
+    "status": "off",
+    "tags": ["c"],
     "repo": "Nyuu-s",
     "body": []
   },
@@ -93,7 +94,8 @@
     "summary": "simple c lexing lib",
     "description": "simple c lexing lib",
     "status": "hiatus",
-    "tags": ["c", "pers"],
+    "focus": true,
+    "tags": ["c"],
     "repo": "Nyuu-s",
     "body": []
   },
@@ -103,7 +105,7 @@
     "summary": "C log plotting tool",
     "description": "C log plotting tool, where you specify a timestamp format, it parses your file and output a plot with lines to compare execution runs",
     "status": "on",
-    "tags": ["c", "pers"],
+    "tags": ["c", "gui"],
     "image": "n",
     "repo": "Nyuu-s",
     "body": []
@@ -114,7 +116,7 @@
     "summary": "My first game",
     "description": "This is my first game made with Unreal Engine. It's a third-person PvE game where you can break things and kill creatures, although this project was mostly to understand how Unreal works, so it isn't a complete fine-tuned game.",
     "status": "done",
-    "tags": ["game", "cpp", "pers"],
+    "tags": ["game", "cpp"],
     "image": "ULearning1_mini.jpg",
     "repo": "Nyuu-s/ULearning1",
     "links": [
@@ -138,7 +140,7 @@
     "summary": "My first multiplayer game",
     "description": "This is my first multiplayer game made with Unreal Engine. It's a third-person shooter where you must kill your friends and capture points. This project was made to understand how Unreal's Online Subsystem works.",
     "status": "on",
-    "tags": ["game", "cpp", "pers"],
+    "tags": ["game", "cpp"],
     "image": "UE.jpg",
     "body": [
       { "type": "text", "text": "This project is still ongoing and the repository is private for now, but I'll make it public eventually." },
@@ -151,7 +153,7 @@
     "summary": "My own game engine project",
     "description": "This is my own game engine project. After building a game engine for a university project, I decided to rebuild it from scratch, without the university's time constraints, to make something cleaner.",
     "status": "hiatus",
-    "tags": ["game", "cpp", "pers", "opengl"],
+    "tags": ["game", "cpp", "opengl"],
     "image": "gameengine.jpg",
     "body": [
       { "type": "text", "text": "This project was my main project until recently. I aimed for a game engine written in C++ using both the OpenGL and Vulkan rendering APIs. The engine would then support a special game using an EEG headset for input (basically controlling the player with your mind!). As an optional challenge, I would then rewrite the engine in Rust to learn this interesting language." },
@@ -194,7 +196,7 @@
     "summary": "Windows application to list all series/anime you watched or want to watch",
     "description": "This is an application listing various series/anime with various statistics.",
     "status": "on",
-    "tags": ["app", "js", "pers"],
+    "tags": ["app", "js"],
     "image": "animelist.jpg",
     "repo": "Nyuu-s/animelistReact",
     "body": [
@@ -210,7 +212,7 @@
     "summary": "Basic setup to use OpenGL for other rendering projects",
     "description": "This is a basic rendering environment with OpenGL.",
     "status": "done",
-    "tags": ["opengl", "cpp", "pers"],
+    "tags": ["opengl", "cpp"],
     "image": "openglbase.jpg",
     "repo": "Nyuu-s/OpenGl_base",
     "body": [
@@ -257,7 +259,7 @@
     "summary": "Two maze generation algorithms, written with p5.js",
     "description": "This is a simple project consisting of two different maze generation algorithms.",
     "status": "done",
-    "tags": ["web", "js", "pers"],
+    "tags": ["web", "js"],
     "image": "maze.jpg",
     "repo": "Nyuu-s/labyJs",
     "body": [
@@ -285,7 +287,7 @@
     "summary": "3D version of this portfolio",
     "description": "This is this portfolio, but made with Three.js and React.",
     "status": "done",
-    "tags": ["js", "web", "pers"],
+    "tags": ["js", "web"],
     "image": "portfolio3d.jpg",
     "repo": "Nyuu-s/portfolio3d",
     "links": [

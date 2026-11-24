@@ -13,7 +13,17 @@ function App() {
   return (
     <div className="App">
 
-    <nav className="page pt-10 pb-6 text-white font-mono font-semibold">
+
+   <nav className="page pt-10 pb-6 text-white font-mono font-semibold">
+        <p>TODO:</p>  
+      <div className="flex flex-wrap  justify-between  text-base bg-red-900"> 
+      <ul >
+        <li>-Add a back arrow on project details</li>  
+        <li>-Convert pictures to webpm</li>  
+        <li>-Add a CLI and GUI default pic </li>  
+        <li>-Add Tag Family : Languages, Software Kinds, Frameworks </li>  
+    </ul>
+ </div>
       <ul className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-lg sm:text-2xl">
         <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'underline' : '')}>About me</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'underline' : '')}>Contact & Infos</NavLink></li>
