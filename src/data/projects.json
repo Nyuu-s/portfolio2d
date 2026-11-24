@@ -1,5 +1,24 @@
 [
   {
+    "slug": "remiut",
+    "title": "remiut",
+    "summary": "Record Migration Utility",
+    "description": "Record Migration Utility",
+    "status": "on",
+    "tags": ["pers", "c"],
+    "repo": "Nyuu-s/remiut",
+    "body": []
+  },
+  {
+    "slug": "pballd",
+    "title": "pballd",
+    "summary": "Petanque ball distance ranker",
+    "description": "Petanque ball distance ranker",
+    "status": "hiatus",
+    "tags": ["c", "pers"],
+    "body": []
+  },
+  {
     "slug": "coib",
     "title": "coib",
     "summary": "Compile Objects Into Binary, a nob.h inspired build tool",
