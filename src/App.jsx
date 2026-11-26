@@ -12,6 +12,9 @@ function App() {
 
   const TODOS = [
     // add todos here
+    "Add a github button in projectCard for easier opening without checking details each time",
+    "Add a last updated timestamps on project card and detail",
+    "Add a sync command to the proj helper that fetches the last push on each repo to update the timestamp"
   ]
 
   return (
