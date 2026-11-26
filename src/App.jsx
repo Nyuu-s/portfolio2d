@@ -9,11 +9,25 @@ import { lazy } from 'react'
 
 function App() {
   const {pathname} = useLocation()
-  
+
+  const TODOS = [
+    // add todos here
+  ]
+
   return (
     <div className="App">
+    <NavLink to="/" className={ pathname == '/' ? "hidden" : "pl-10 pt-10 text-white text-lg font-mono font-semibold fixed"}> HOME </NavLink>
 
     <nav className="page pt-10 pb-6 text-white font-mono font-semibold">
+      
+    {import.meta.env.DEV && TODOS.length > 0 && (
+      <div className="mb-4 bg-red-900 p-3 text-base">
+        <p>TODO:</p>
+        <ul>
+            {TODOS.map((t) => <li key={t}>- {t}</li>)}
+        </ul>
+      </div>
+    )}
       <ul className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-lg sm:text-2xl">
         <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'underline' : '')}>About me</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'underline' : '')}>Contact & Infos</NavLink></li>
@@ -24,6 +38,8 @@ function App() {
         </li>
       </ul>
     </nav>
+    
+     
 
 
 

@@ -1,21 +1,45 @@
 [
   {
-    "slug": "coib",
-    "title": "coib",
-    "summary": "Compile Objects Into Binary, a nob.h inspired build tool",
-    "description": "Compile Objects Into Binary, a nob.h inspired build tool",
-    "status": "done",
-    "tags": ["c", "pers"],
-    "repo": "Nyuu-s/coib",
+    "slug": "s2c",
+    "title": "s2c",
+    "summary": "Screenshot to C code",
+    "image": "command.webp",
+    "description": "Screenshot to C code",
+    "status": "hiatus",
+    "tags": ["c", "cli"],
+    "repo": "Nyuu-s/s2c",
     "body": []
   },
   {
-    "slug": "hello",
-    "title": "hello",
-    "summary": "hello world",
-    "description": "hello world",
-    "status": "off",
-    "tags": ["game"],
+    "slug": "remiut",
+    "title": "remiut",
+    "summary": "Record Migration Utility",
+    "description": "Record Migration Utility",
+    "status": "on",
+    "focus": true,
+    "image": "command.webp",
+    "tags": ["c", "cli"],
+    "repo": "Nyuu-s/remiut",
+    "body": []
+  },
+  {
+    "slug": "pballd",
+    "title": "pballd",
+    "summary": "Petanque ball distance ranker",
+    "description": "Petanque ball distance ranker",
+    "status": "hiatus",
+    "tags": ["c", "gui"],
+    "body": []
+  },
+  {
+    "slug": "coib",
+    "title": "coib",
+    "image": "command.webp",
+    "summary": "Compile Objects Into Binary, a nob.h inspired build tool",
+    "description": "Compile Objects Into Binary, a nob.h inspired build tool",
+    "status": "done",
+    "tags": ["c", "cli"],
+    "repo": "Nyuu-s/coib",
     "body": []
   },
   {
@@ -24,10 +48,9 @@
     "summary": "Simple C lexer with IBM ILE support",
     "description": "Simple C lexer with IBM ILE support",
     "status": "hiatus",
-    "tags": ["python", "c", "pers"],
+    "tags": ["python"],
     "repo": "Nyuu-s/ILexC",
-    "body": [],
-    "focus": true
+    "body": []
   },
   {
     "slug": "swapandjump",
@@ -35,7 +58,7 @@
     "summary": "Small platformer 2D game prototype to test different algorithms of swaping levels",
     "description": "Small platformer 2D game prototype to test different algorithms of swaping levels",
     "status": "hiatus",
-    "tags": ["cpp", "pers", "opengl"],
+    "tags": ["cpp", "game", "opengl"],
     "repo": "Nyuu-s/SwapAndJump",
     "body": []
   },
@@ -45,7 +68,7 @@
     "summary": "small riddle games to open presents for xmas",
     "description": "small riddle games to open presents for xmas",
     "status": "hiatus",
-    "tags": ["c", "pers"],
+    "tags": ["c", "game"],
     "repo": "https://github.com/Nyuu-s/xmasGames",
     "body": []
   },
@@ -62,9 +85,9 @@
     "slug": "legacy-search-engine",
     "title": "Legacy Search Engine",
     "summary": "A tool to anlyse mainframe codebases",
-    "description": "A tool to anlyse mainframe codebases",
-    "status": "hiatus",
-    "tags": ["c", "pers"],
+    "description": "A tool to anlyse mainframe codebases, essentialy a static analyzer intended to find hotspots where a one to one translation would cause performance issues. Requires a legacy lexer/parser,  and an analyzer. Unfortunatly with the upcoming AI improvements, this project wasn't as useful as I wished for, so I couldn't invest much time in it.",
+    "status": "off",
+    "tags": ["c"],
     "repo": "Nyuu-s",
     "body": []
   },
@@ -74,7 +97,8 @@
     "summary": "simple c lexing lib",
     "description": "simple c lexing lib",
     "status": "hiatus",
-    "tags": ["c", "pers"],
+    "focus": true,
+    "tags": ["c"],
     "repo": "Nyuu-s",
     "body": []
   },
@@ -84,8 +108,7 @@
     "summary": "C log plotting tool",
     "description": "C log plotting tool, where you specify a timestamp format, it parses your file and output a plot with lines to compare execution runs",
     "status": "on",
-    "tags": ["c", "pers"],
-    "image": "n",
+    "tags": ["c", "gui"],
     "repo": "Nyuu-s",
     "body": []
   },
@@ -95,8 +118,8 @@
     "summary": "My first game",
     "description": "This is my first game made with Unreal Engine. It's a third-person PvE game where you can break things and kill creatures, although this project was mostly to understand how Unreal works, so it isn't a complete fine-tuned game.",
     "status": "done",
-    "tags": ["game", "cpp", "pers"],
-    "image": "ULearning1_mini.jpg",
+    "tags": ["game", "cpp"],
+    "image": "ULearning1_mini.webp",
     "repo": "Nyuu-s/ULearning1",
     "links": [
       { "label": "Download 1.0.0 (GitHub releases)", "href": "https://github.com/Nyuu-s/ULearning1/releases/tag/1.0.0" }
@@ -118,9 +141,9 @@
     "title": "ULearning2",
     "summary": "My first multiplayer game",
     "description": "This is my first multiplayer game made with Unreal Engine. It's a third-person shooter where you must kill your friends and capture points. This project was made to understand how Unreal's Online Subsystem works.",
-    "status": "on",
-    "tags": ["game", "cpp", "pers"],
-    "image": "UE.jpg",
+    "status": "hiatus",
+    "tags": ["game", "cpp"],
+    "image": "UE.webp",
     "body": [
       { "type": "text", "text": "This project is still ongoing and the repository is private for now, but I'll make it public eventually." },
       { "type": "text", "text": "I'm making a simple multiplayer plugin able to create Steam sessions and join them, which I can then reuse in future projects. I've been learning how Unreal's replication system works, even though it's not always clear what is already replicated by default. I've learned how to use rep notifies in C++ along with RPCs to call functions on the server from a client." }
@@ -132,8 +155,8 @@
     "summary": "My own game engine project",
     "description": "This is my own game engine project. After building a game engine for a university project, I decided to rebuild it from scratch, without the university's time constraints, to make something cleaner.",
     "status": "hiatus",
-    "tags": ["game", "cpp", "pers", "opengl"],
-    "image": "gameengine.jpg",
+    "tags": ["game", "cpp", "opengl"],
+    "image": "gameengine.webp",
     "body": [
       { "type": "text", "text": "This project was my main project until recently. I aimed for a game engine written in C++ using both the OpenGL and Vulkan rendering APIs. The engine would then support a special game using an EEG headset for input (basically controlling the player with your mind!). As an optional challenge, I would then rewrite the engine in Rust to learn this interesting language." },
       { "type": "text", "text": "Unfortunately, I had to choose between focusing on the Engine Programmer or the Gameplay Programmer path, and I always wanted to be in gameplay, so this project is currently on hiatus until I'm done learning Unreal Engine (and have found a job 😉)." }
@@ -146,7 +169,7 @@
     "description": "This is a university project I worked on with 2 of my classmates, where the goal was to create a game engine and a game using this same engine.",
     "status": "done",
     "tags": ["game", "cpp", "uni", "opengl"],
-    "image": "SnowTempleRun.jpg",
+    "image": "SnowTempleRun.webp",
     "repo": "fds-napolitain/m2-temple-run",
     "body": [
       { "type": "text", "text": "To do this, we used Qt (C++) and OpenGL as the graphics API. We chose to take the mobile game Temple Run and give it a winter theme with a snowman. We also challenged ourselves to move only the background and obstacles, not the character. It's an endless game where the goal is to get the best score possible by avoiding ice cubes." },
@@ -162,7 +185,7 @@
     "description": "ARPA (Augmented Reality Piano Assistant) is a university project I worked on with 2 of my classmates, using Unity and a Leap Motion to detect the user's hands.",
     "status": "done",
     "tags": ["game", "cs", "uni"],
-    "image": "arpa.jpg",
+    "image": "arpa.webp",
     "repo": "fds-napolitain/m2-projet-ar",
     "body": [
       { "type": "text", "text": "With certain hand movements, you can zoom in/out on the piano or move along it. With the help of different techniques, such as quantization, we were able to reduce sensor imprecision and thus accidental errors, such as double taps. It is also possible to visualize which chords are being played. Here are some demonstration videos of the final application (in French)." },
@@ -174,15 +197,15 @@
     "title": "Anime List",
     "summary": "Windows application to list all series/anime you watched or want to watch",
     "description": "This is an application listing various series/anime with various statistics.",
-    "status": "on",
-    "tags": ["app", "js", "pers"],
-    "image": "animelist.jpg",
+    "status": "done",
+    "tags": ["js", "gui"],
+    "image": "animelist.webp",
     "repo": "Nyuu-s/animelistReact",
     "body": [
       { "type": "text", "text": "I created an application using JavaScript and the front-end frameworks React and Electron: a Windows application able to list series watched or to be watched, as well as available languages, release dates and other information. Initially, this application was intended for a friend, but it will eventually be usable by everyone." },
-      { "type": "image", "src": "animelist.jpg", "alt": "Screenshot of the series list" },
+      { "type": "image", "src": "animelist.webp", "alt": "Screenshot of the series list" },
       { "type": "text", "text": "A customization tab has been added to change the colors as desired and the main theme (dark or light)." },
-      { "type": "image", "src": "1_animelist.jpg", "alt": "Screenshot of the theme and color settings" }
+      { "type": "image", "src": "1_animelist.webp", "alt": "Screenshot of the theme and color settings" }
     ]
   },
   {
@@ -191,12 +214,12 @@
     "summary": "Basic setup to use OpenGL for other rendering projects",
     "description": "This is a basic rendering environment with OpenGL.",
     "status": "done",
-    "tags": ["opengl", "cpp", "pers"],
-    "image": "openglbase.jpg",
+    "tags": ["opengl", "gui", "cpp"],
+    "image": "openglbase.webp",
     "repo": "Nyuu-s/OpenGl_base",
     "body": [
       { "type": "text", "text": "The goal was to discover and understand how rendering a simple scene works with OpenGL, through the freeCodeCamp tutorial. I later wanted to use it as a base for various exercises or projects without having to rewrite the basics every time." },
-      { "type": "image", "src": "openglbase_detail.jpg", "alt": "Screenshot of a 3D scene" }
+      { "type": "image", "src": "openglbase_detail.webp", "alt": "Screenshot of a 3D scene" }
     ]
   },
   {
@@ -205,8 +228,8 @@
     "summary": "University project: an image reconstruction application",
     "description": "This is a university project consisting of an application that performs image reconstruction, made with a classmate.",
     "status": "done",
-    "tags": ["cs", "uwp", "uni"],
-    "image": "inpaint.jpg",
+    "tags": ["cs", "gui", "uwp", "uni"],
+    "image": "inpaint.webp",
     "repo": "fds-napolitain/m1-image-inpainting",
     "body": [
       { "type": "text", "text": "Our aim was to develop an application that can take an image as input and let the user select areas to be repainted, in order to reconstruct or erase elements of the image." },
@@ -220,16 +243,16 @@
     "summary": "University project: HDR images for astrophotography",
     "description": "This is a university project: an application that generates high dynamic range (HDR) images for astrophotography, made with a classmate.",
     "status": "done",
-    "tags": ["cpp", "uni"],
-    "image": "hdr.jpg",
+    "tags": ["cpp", "gui", "uni"],
+    "image": "hdr.webp",
     "repo": "fds-napolitain/m2-image-hdr",
     "body": [
       { "type": "text", "text": "Our project was to create an application that could take in a night sky image as input and apply different HDR algorithms to enhance it." },
       { "type": "text", "text": "We used Qt to create an easy-to-use interface, and we implemented different HDR algorithms using OpenCV, such as those of Robertson, Debevec and Mertens." },
-      { "type": "image", "src": "hdr.jpg", "alt": "Poster explaining how the HDR application works", "half": true },
+      { "type": "image", "src": "hdr.webp", "alt": "Poster explaining how the HDR application works", "half": true },
       { "type": "text", "text": "We also tested several noise reduction methods, a common problem in astrophotography, first by averaging the images and then using a convolutional neural network." },
       { "type": "text", "text": "Finally, our results were quite satisfactory and we were able to develop an application that offered different options for tone mapping and HDR algorithms to produce an enhanced image. Here is the final poster that explains how we made the application (in French)." },
-      { "type": "image", "src": "imagehdr.jpg", "alt": "Final poster explaining how the HDR application works", "half": true }
+      { "type": "image", "src": "imagehdr.webp", "alt": "Final poster explaining how the HDR application works", "half": true }
     ]
   },
   {
@@ -238,8 +261,8 @@
     "summary": "Two maze generation algorithms, written with p5.js",
     "description": "This is a simple project consisting of two different maze generation algorithms.",
     "status": "done",
-    "tags": ["web", "js", "pers"],
-    "image": "maze.jpg",
+    "tags": ["web", "js"],
+    "image": "maze.webp",
     "repo": "Nyuu-s/labyJs",
     "body": [
       { "type": "text", "text": "This is a small program written with the p5.js framework that generates a maze, the goal being to experiment with different algorithms, including one using backtracking and another using recursive division of space." },
@@ -253,7 +276,7 @@
     "description": "This is a database project listing all web accessibility criteria.",
     "status": "done",
     "tags": ["js", "web"],
-    "image": "cms.png",
+    "image": "cms.webp",
     "body": [
       { "type": "text", "text": "During my final internship, I developed a project aimed at preparing the development of a CMS that produces accessible websites." },
       { "type": "text", "text": "To do this, I created an application with a database that includes all the accessibility criteria from WCAG, and an API that will allow this future CMS to request validations or recommendations regarding the user's ongoing production." },
@@ -266,8 +289,8 @@
     "summary": "3D version of this portfolio",
     "description": "This is this portfolio, but made with Three.js and React.",
     "status": "done",
-    "tags": ["js", "web", "pers"],
-    "image": "portfolio3d.jpg",
+    "tags": ["js", "web"],
+    "image": "portfolio3d.webp",
     "repo": "Nyuu-s/portfolio3d",
     "links": [
       { "label": "Visit the 3D version", "href": "http://3d.edgar.jacquemoud.com" }
