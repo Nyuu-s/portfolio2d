@@ -12,7 +12,6 @@ function App() {
 
   const TODOS = [
     // add todos here
-    "Add a tags button to display and hide tag filters"
   ]
 
   return (

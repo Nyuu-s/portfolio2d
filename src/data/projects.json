@@ -141,7 +141,7 @@
     "title": "ULearning2",
     "summary": "My first multiplayer game",
     "description": "This is my first multiplayer game made with Unreal Engine. It's a third-person shooter where you must kill your friends and capture points. This project was made to understand how Unreal's Online Subsystem works.",
-    "status": "on",
+    "status": "hiatus",
     "tags": ["game", "cpp"],
     "image": "UE.webp",
     "body": [
@@ -197,7 +197,7 @@
     "title": "Anime List",
     "summary": "Windows application to list all series/anime you watched or want to watch",
     "description": "This is an application listing various series/anime with various statistics.",
-    "status": "on",
+    "status": "done",
     "tags": ["js", "gui"],
     "image": "animelist.webp",
     "repo": "Nyuu-s/animelistReact",
