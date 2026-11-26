@@ -8,6 +8,7 @@ import path from 'node:path'
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DATA = path.join(ROOT, 'src/data/projects.json')
 const TAGS_FILE = path.join(ROOT, 'src/data/tags.js')
+const FAMILIES_FILE = path.join(ROOT, 'src/data/families.js')
 const IMAGES = path.join(ROOT, 'src/assets/images')
 
 const STATUSES = ['on', 'off', 'hiatus', 'done']
@@ -24,6 +25,8 @@ const PALETTE = [
 const load = async () => JSON.parse(await readFile(DATA, 'utf8'))
 const tagsText = () => readFile(TAGS_FILE, 'utf8')
 const tagKeys = async () => [...(await tagsText()).matchAll(/^\s+(\w+):\s*\{/gm)].map((m) => m[1])
+// family keys are the entries of FAMILIES in families.js (language, kind, ...)
+const familyKeys = async () => [...(await readFile(FAMILIES_FILE, 'utf8')).matchAll(/^\s+(\w+):\s*\{\s*label:/gm)].map((m) => m[1])
 
 const inline = (v) =>
   Array.isArray(v)
@@ -72,7 +75,7 @@ async function appendTags(defs) {
   const text = await tagsText()
   const end = text.lastIndexOf('}') // closing brace of TAGS (assumes it is the last thing in the file)
   const q = (s) => `'${s.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
-  const lines = entries.map(([k, t]) => `  ${k}: { label: ${q(t.label)}, color: ${q(t.color)} },\n`).join('')
+  const lines = entries.map(([k, t]) => `  ${k}: { label: ${q(t.label)}, color: ${q(t.color)}, family: ${q(t.family)} },\n`).join('')
   const before = text.slice(0, end)
   await writeFile(TAGS_FILE, (before.endsWith('\n') ? before : before + '\n') + lines + text.slice(end))
 }
@@ -133,7 +136,12 @@ async function resolveTags(picked, known) {
       if (PALETTE.includes(color)) break
     }
     used.add(color)
-    created[key] = { label, color: `bg-${color}-300` }
+
+    const families = await familyKeys()
+    let family
+    do family = (await ask(`  Family (${families.join(', ')})`, families[0])).toLowerCase()
+    while (!families.includes(family))
+    created[key] = { label, color: `bg-${color}-300`, family }
   }
   return created
 }

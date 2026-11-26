@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 import TagChip from './TagChip'
 import { STATUS } from '../data/status'
+import { TAGS } from '../data/tags'
+import { compareTags, familyOf } from '../data/families'
 
 const THUMB = 'w-28 sm:w-44 flex-shrink-0 self-start rounded-lg'
 
 export default function ProjectCard({ project: p }) {
   const s = STATUS[p.status]
+  const sorted = [...p.tags].sort(compareTags)
+  const chips = sorted.filter((t) => familyOf(t).style !== 'text')
+  const plain = sorted.filter((t) => familyOf(t).style === 'text')
   return (
     <Link
       to={`/project/details/${p.slug}`}
@@ -40,14 +45,13 @@ export default function ProjectCard({ project: p }) {
           )}
         </div>
         <div className="mt-1 text-gray-300">{p.summary}</div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {p.tags
-            .sort()
-            .map((t) => <TagChip key={t} id={t} />)
-
-
-          }
-
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          {chips.map((t) => <TagChip key={t} id={t} />)}
+          {plain.length > 0 && (
+            <span className="text-xs text-gray-400">
+              {plain.map((t) => TAGS[t].label).join(' · ')}
+            </span>
+          )}
         </div>
       </div>
     </Link>
