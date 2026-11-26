@@ -2,7 +2,6 @@ export const TAGS = {
   game:   { label: 'Games',      color: 'bg-red-400' },
   cs:     { label: 'C#',         color: 'bg-fuchsia-300' },
   web:    { label: 'Web',        color: 'bg-sky-400' },
-  app:    { label: 'Apps',       color: 'bg-green-400' },
   cpp:    { label: 'C++',        color: 'bg-purple-400' },
   js:     { label: 'Javascript', color: 'bg-yellow-300' },
   opengl: { label: 'OpenGL',     color: 'bg-blue-300' },

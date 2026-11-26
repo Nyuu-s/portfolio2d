@@ -9,17 +9,14 @@ import { lazy } from 'react'
 
 function App() {
   const {pathname} = useLocation()
-  
   return (
     <div className="App">
 
-
+    <NavLink to="/" className={ pathname == '/' ? "hidden" : "pl-10 pt-10 text-white text-lg font-mono font-semibold fixed"}> HOME </NavLink>
    <nav className="page pt-10 pb-6 text-white font-mono font-semibold">
         <p>TODO:</p>  
       <div className="flex flex-wrap  justify-between  text-base bg-red-900"> 
       <ul >
-        <li>-Add a back arrow on project details</li>  
-        <li>-Add a CLI and GUI default pic </li>  
         <li>-Add Tag Family : Languages, Software Kinds, Frameworks </li>  
     </ul>
  </div>
@@ -33,6 +30,8 @@ function App() {
         </li>
       </ul>
     </nav>
+    
+     
 
 
 

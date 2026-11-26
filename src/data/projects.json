@@ -3,6 +3,7 @@
     "slug": "s2c",
     "title": "s2c",
     "summary": "Screenshot to C code",
+    "image": "command.webp",
     "description": "Screenshot to C code",
     "status": "hiatus",
     "tags": ["c", "cli"],
@@ -16,6 +17,7 @@
     "description": "Record Migration Utility",
     "status": "on",
     "focus": true,
+    "image": "command.webp",
     "tags": ["c", "cli"],
     "repo": "Nyuu-s/remiut",
     "body": []
@@ -26,16 +28,17 @@
     "summary": "Petanque ball distance ranker",
     "description": "Petanque ball distance ranker",
     "status": "hiatus",
-    "tags": ["c"],
+    "tags": ["c", "gui"],
     "body": []
   },
   {
     "slug": "coib",
     "title": "coib",
+    "image": "command.webp",
     "summary": "Compile Objects Into Binary, a nob.h inspired build tool",
     "description": "Compile Objects Into Binary, a nob.h inspired build tool",
     "status": "done",
-    "tags": ["c"],
+    "tags": ["c", "cli"],
     "repo": "Nyuu-s/coib",
     "body": []
   },
@@ -55,7 +58,7 @@
     "summary": "Small platformer 2D game prototype to test different algorithms of swaping levels",
     "description": "Small platformer 2D game prototype to test different algorithms of swaping levels",
     "status": "hiatus",
-    "tags": ["cpp", "opengl"],
+    "tags": ["cpp", "game", "opengl"],
     "repo": "Nyuu-s/SwapAndJump",
     "body": []
   },
@@ -65,7 +68,7 @@
     "summary": "small riddle games to open presents for xmas",
     "description": "small riddle games to open presents for xmas",
     "status": "hiatus",
-    "tags": ["c"],
+    "tags": ["c", "game"],
     "repo": "https://github.com/Nyuu-s/xmasGames",
     "body": []
   },
@@ -195,7 +198,7 @@
     "summary": "Windows application to list all series/anime you watched or want to watch",
     "description": "This is an application listing various series/anime with various statistics.",
     "status": "on",
-    "tags": ["app", "js"],
+    "tags": ["js", "gui"],
     "image": "animelist.webp",
     "repo": "Nyuu-s/animelistReact",
     "body": [
@@ -211,7 +214,7 @@
     "summary": "Basic setup to use OpenGL for other rendering projects",
     "description": "This is a basic rendering environment with OpenGL.",
     "status": "done",
-    "tags": ["opengl", "cpp"],
+    "tags": ["opengl", "gui", "cpp"],
     "image": "openglbase.webp",
     "repo": "Nyuu-s/OpenGl_base",
     "body": [
@@ -225,7 +228,7 @@
     "summary": "University project: an image reconstruction application",
     "description": "This is a university project consisting of an application that performs image reconstruction, made with a classmate.",
     "status": "done",
-    "tags": ["cs", "uwp", "uni"],
+    "tags": ["cs", "gui", "uwp", "uni"],
     "image": "inpaint.webp",
     "repo": "fds-napolitain/m1-image-inpainting",
     "body": [
@@ -240,7 +243,7 @@
     "summary": "University project: HDR images for astrophotography",
     "description": "This is a university project: an application that generates high dynamic range (HDR) images for astrophotography, made with a classmate.",
     "status": "done",
-    "tags": ["cpp", "uni"],
+    "tags": ["cpp", "gui", "uni"],
     "image": "hdr.webp",
     "repo": "fds-napolitain/m2-image-hdr",
     "body": [

@@ -30,18 +30,24 @@ export default function ProjectCard({ project: p }) {
         </div>
       )}
 
-      <div className="min-w-0">
+      <div className="min-w-0 w-full">
         <div className="flex flex-wrap items-baseline gap-x-3">
           <span className="text-lg font-semibold leading-snug">{p.title}</span>
           {s && (
-            <span className={`text-xs font-semibold ${s.color}`}>
+            <span className={`text-xs font-semibold ml-auto ${s.color}`}>
               <span aria-hidden="true">● </span>{s.label}
             </span>
           )}
         </div>
         <div className="mt-1 text-gray-300">{p.summary}</div>
         <div className="mt-3 flex flex-wrap gap-1.5">
-          {p.tags.map((t) => <TagChip key={t} id={t} />)}
+          {p.tags
+            .sort()
+            .map((t) => <TagChip key={t} id={t} />)
+
+
+          }
+
         </div>
       </div>
     </Link>
